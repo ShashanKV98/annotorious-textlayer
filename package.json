@@ -1,0 +1,53 @@
+{
+  "name": "@annotorious/openseadragon-textlayer",
+  "version": "0.1.0",
+  "description": "A text overlay layer for Annotorious OpenSeadragon",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "echo 'Skipping tests in @annotorious/openseadragon-textlayer package'"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/annotorious-openseadragon-textlayer.es.js",
+      "require": "./dist/annotorious-openseadragon-textlayer.umd.js"
+    },
+    "./annotorious-openseadragon.css": "./dist/annotorious-openseadragon-textlayer.css"
+  },
+  "main": "./dist/annotorious-openseadragon-textlayer.umd.js",
+  "module": "./dist/annotorious-openseadragon-textlayer.es.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annotorious/annotorious-extensions.git"
+  },
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/annotorious/annotorious-extensions/issues"
+  },
+  "homepage": "https://annotorious.github.io",
+  "devDependencies": {
+    "@annotorious/formats": "file:../annotorious-formats",
+    "@sveltejs/vite-plugin-svelte": "^2.0.4",
+    "@tsconfig/svelte": "^3.0.0",
+    "@types/node": "^20.8.0",
+    "@types/openseadragon": "^3.0.4",
+    "@types/rbush": "^3.0.0",
+    "@types/uuid": "^9.0.1",
+    "svelte": "^3.58.0",
+    "svelte-preprocess": "^4.10.7",
+    "typescript": "^4.9.5",
+    "vite": "^4.2.1",
+    "vite-plugin-dts": "^2.2.0"
+  },
+  "peerDependencies": {
+    "@annotorious/openseadragon": "file:../../annotorious/packages/annotorious-openseadragon",
+    "openseadragon": "^3.0.0 || ^4.0.0"
+  }
+}
