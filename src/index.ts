@@ -1,4 +1,4 @@
+export * from './labelConfigurations';
 export * from './textLayerExtension';
-export * from './helpers';
+export * from './Types';
 
-export type OCRFormat = 'ALTO';

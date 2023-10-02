@@ -1,9 +1,8 @@
 import type { OpenSeadragonAnnotator, ImageAnnotation, ImageAnnotatorState } from '@annotorious/openseadragon';
-import { parseALTO, type PageMetadata } from '@annotorious/formats';
+import { parseALTO } from '@annotorious/formats';
 import OpenSeadragonTextLayer from './TextLayer.svelte';
-import type { TextLayerOpts } from './TextLayerOpts';
-import { getImageDimensions, type ImageDimensions } from './ImageDimensions';
-import type { OCRFormat } from '.';
+import type { OCRFormat, TextLayerOpts } from './Types';
+import { getImageDimensions, scaleAnnotations } from './ImageDimensions';
 
 import './textLayerExtension.css';
 
@@ -20,29 +19,6 @@ export const mountExtension = (
     target: viewer.element.querySelector('.openseadragon-canvas'),
     props: { state: state as ImageAnnotatorState, viewer, opts }
   });
-
-  const scaleAnnotations = (a: ImageAnnotation[], page: PageMetadata, dim: ImageDimensions) => {
-    const pageWidth = page.width;
-    const pageHeight = page.height;
-
-    const imgWidth = dim.width;
-    const imgHeight = dim.height;
-
-    if (pageWidth && pageHeight) {
-      if (pageWidth === imgWidth && pageHeight === imgHeight) {
-        // No need to scale
-        return a;
-      } else {
-        console.log('[TextLayerExtension] Page and image are different size - scaling annotations');
-
-        // TODO
-        return a;
-      }
-    } else {
-      console.warn('[TextLayerExtension] Cannot scale annotations without page dimensions');
-      return a;
-    }
-  }
 
   const unmount = () => textLayer.$destroy();
 

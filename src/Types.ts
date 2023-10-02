@@ -13,3 +13,5 @@ export interface TextLayerOpts {
   offsetY?: number;
 
 }
+
+export type OCRFormat = 'ALTO';
