@@ -15,10 +15,16 @@
   transform-origin: 0 0;
 }
 
-.a9s-annotationlayer.a9s-osd-textlayer.fixed-size .annotation span {
+.a9s-annotationlayer.a9s-osd-textlayer.fixed-screen-size .annotation span {
   display:inline-block;
   font-size: 14px;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 3px 6px;
   border-radius: 2px;
+}
+
+.a9s-annotationlayer.a9s-osd-textlayer.fixed-page-size {
+  color: #d80bde;
+  font-size: 40px;
+  text-shadow: 0 0 6px rgb(255 255 255 / 95%);
 }

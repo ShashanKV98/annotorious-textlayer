@@ -56,10 +56,16 @@
           }]        
         });
 
-        var anno = createOSDAnnotator(viewer, { adapter: null });
+        var anno = createOSDAnnotator(viewer);
+
+        anno.setFormatter(function() { 
+          return { fillOpacity: 0 };
+        });
 
         var textlayer = mountExtension(anno, {
-          label: transcriptionLabel
+          label: transcriptionLabel,
+          mode: 'fixedPageSize',
+          offsetY: -25
         });
 
         textlayer.loadOCR('alto-sample.xml');

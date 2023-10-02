@@ -1,7 +1,7 @@
 <script type="ts">
   import type { ImageAnnotation, ImageAnnotatorState, StoreChangeEvent } from '@annotorious/openseadragon';
   import { onMount } from 'svelte';
-  import { FillBoundsLabel, FixedSizeLabel } from './Label';
+  import { FillBoundsLabel, FixedPageSizeLabel, FixedScreenSizeLabel } from './Label';
   import type { TextLayerOpts } from './Types';
   import { getImageDimensions } from './ImageDimensions';
     
@@ -84,19 +84,26 @@
   <div 
     style={`transform:${transform}; width: ${width}px; height: ${height}px`}
     class="a9s-annotationlayer a9s-osd-textlayer"
-    class:fixed-size={opts.mode !== 'fillBounds'}
+    class:fixed-screen-size={opts.mode === 'fixedScreenSize' || (!opts.mode)}
+    class:fixed-page-size={opts.mode === 'fixedPageSize'}
     class:fill-bounds={opts.mode === 'fillBounds'}
     class:bottomleft={opts.position !== 'topleft'}
     class:topleft={opts.position === 'topleft'}>
-    {#if opts.mode !== 'fillBounds'}
+    {#if opts.mode === 'fixedScreenSize' || (!opts.mode)}
       {#each annotations as annotation}
-        <FixedSizeLabel 
-          imageSize={[width, height]}
+        <FixedScreenSizeLabel 
           annotation={annotation} 
           opts={opts} 
+          imageSize={[width, height]}
           scale={scale} />
       {/each}
-    {:else}
+    {:else if opts.mode === 'fixedPageSize'}
+      {#each annotations as annotation}
+        <FixedPageSizeLabel 
+          annotation={annotation} 
+          opts={opts} />
+      {/each}
+    {:else if opts.mode === 'fillBounds'}
       {#each annotations as annotation}
         <FillBoundsLabel 
           annotation={annotation} 

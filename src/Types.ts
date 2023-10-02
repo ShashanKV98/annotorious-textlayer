@@ -4,7 +4,7 @@ export interface TextLayerOpts {
 
   label(annotation: ImageAnnotation): string | undefined;
 
-  mode?: 'fillBounds' | 'fixedSize';
+  mode?: 'fillBounds' | 'fixedPageSize' | 'fixedScreenSize';
 
   position?: 'topleft' | 'bottomleft';
 

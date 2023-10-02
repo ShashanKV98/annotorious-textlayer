@@ -1,8 +1,6 @@
 <script lang="ts">
   import type { ImageAnnotation } from '@annotorious/openseadragon';
-  import type { TextLayerOpts } from '../TextLayerOpts';
-
-  let ref: HTMLSpanElement;
+  import type { TextLayerOpts } from '../Types';
 
   /** props **/
   export let annotation: ImageAnnotation;
@@ -31,7 +29,7 @@
 <div 
   class="annotation"
   style={getStyle(x, y, scale)}>
-  <span bind:this={ref}>
+  <span>
     {opts.label(annotation)}
   </span>&nbsp;<!-- ensures spaces between words on copy and paste! -->
 </div>
