@@ -10,6 +10,7 @@
   export let viewer: OpenSeadragon.Viewer;
   export let opts: TextLayerOpts;
   export let visible: boolean = true;
+  export let captureEvents: boolean = false;
 
   const { store } = state;
 
@@ -88,7 +89,8 @@
     class:fixed-page-size={opts.mode === 'fixedPageSize'}
     class:fill-bounds={opts.mode === 'fillBounds'}
     class:bottomleft={opts.position !== 'topleft'}
-    class:topleft={opts.position === 'topleft'}>
+    class:topleft={opts.position === 'topleft'}
+    class:pointer-events={captureEvents}>
     {#if opts.mode === 'fixedScreenSize' || (!opts.mode)}
       {#each annotations as annotation}
         <FixedScreenSizeLabel 

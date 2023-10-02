@@ -20,7 +20,7 @@
         color: rgba(0, 0, 0, 0.6);
       }
 
-      button {
+      .buttons {
         position: absolute;
         top: 20px;
         right: 20px;
@@ -31,7 +31,10 @@
   <body>
     <div id="openseadragon"></div>
 
-    <button id="toggle">Toggle Layer</button>
+    <div class="buttons">
+      <button id="toggle-locked">Lock for Copy &amp; Paste</button>
+      <button id="toggle-visibility">Toggle Layer Visiblity</button>
+    </div>
 
     <script type="module">
       import { createOSDAnnotator } from '@annotorious/openseadragon';
@@ -56,7 +59,9 @@
           }]        
         });
 
-        var anno = createOSDAnnotator(viewer);
+        var anno = createOSDAnnotator(viewer, {
+          pointerSelectAction: 'NONE'
+        });
 
         anno.setFormatter(function() { 
           return { fillOpacity: 0 };
@@ -65,12 +70,23 @@
         var textlayer = mountExtension(anno, {
           label: transcriptionLabel,
           mode: 'fixedPageSize',
-          offsetY: -25
+          offsetY: -35
         });
 
         textlayer.loadOCR('alto-sample.xml');
 
-        document.getElementById('toggle').addEventListener('click', () => {
+        const btnLocked = document.getElementById('toggle-locked');
+        btnLocked.addEventListener('click', () => {
+          if (textlayer.isLocked()) {
+            btnLocked.innerHTML = 'Lock for Copy &amp; Paste';
+            textlayer.setLocked(false);
+          } else {
+            btnLocked.innerHTML = 'Unlock';
+            textlayer.setLocked(true);
+          }
+        });
+
+        document.getElementById('toggle-visibility').addEventListener('click', () => {
           textlayer.setVisible(!textlayer.isVisible());
         });
       }
