@@ -23,7 +23,8 @@ export default defineConfig({
       entry: './src/index.ts',
       name: 'OSDTextLayer',
       formats: ['es', 'umd'],
-      fileName: (format) => `annotorious-openseadragon-textlayer.${format}.js`
+      fileName: (format) => 
+        format === 'umd' ? `annotorious-openseadragon-textlayer.js` : `annotorious-openseadragon-textlayer.es.js` 
     },
     rollupOptions: {
       external: [
