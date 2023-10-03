@@ -73,10 +73,25 @@
 
     store.observe(onStoreChange);
 
+    const onCopy = (evt: ClipboardEvent) => {
+      const unformatted = document.getSelection().toString();
+
+      // @ts-ignore
+      const clipboardData = evt.clipboardData || window.clipboardData;  
+      clipboardData.setData('text/plain', unformatted);
+      clipboardData.setData('text/html', unformatted);
+
+      evt.preventDefault();
+    }
+
+    document.addEventListener('copy', onCopy);
+
     return () => {
       viewer.removeHandler('update-viewport', redraw);
 
       store.unobserve(onStoreChange);
+
+      document.removeEventListener('copy', onCopy);
     }
   });
 </script>
