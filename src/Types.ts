@@ -6,7 +6,7 @@ export interface TextLayerOpts {
 
   mode?: 'fillBounds' | 'fixedPageSize' | 'fixedScreenSize';
 
-  position?: 'topleft' | 'bottomleft';
+  position?: 'topleft' | 'bottomleft' | 'center';
 
   offsetX?: number;
 

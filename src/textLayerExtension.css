@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
+
 .a9s-annotationlayer.a9s-osd-textlayer {
+  font-family: "Martian Mono";
   transform-origin: 0 0;
   pointer-events: none;
 }
@@ -29,6 +32,6 @@
 
 .a9s-annotationlayer.a9s-osd-textlayer.fixed-page-size {
   color: #d80bde;
-  font-size: 48px;
+  font-size: 58px;
   text-shadow: 0 0 6px rgb(255 255 255 / 95%);
 }
