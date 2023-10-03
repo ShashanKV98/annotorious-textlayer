@@ -29,6 +29,10 @@
         top: 20px;
         right: 20px;
       }
+
+      .a9s-osd-textlayer .annotation {
+        color: #2139ff !important;
+      }
     </style>
   </head>
 
@@ -69,7 +73,8 @@
         var textlayer = OSDTextLayer.mountExtension(anno, {
           label: OSDTextLayer.transcriptionLabel,
           mode: 'fixedPageSize',
-          offsetY: -35
+          position: 'center',
+          offsetY: 50
         });
 
         textlayer.loadOCR('alto-sample.xml');
