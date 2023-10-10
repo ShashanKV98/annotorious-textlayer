@@ -13,11 +13,11 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/annotorious-openseadragon-textlayer.es.js",
-      "require": "./dist/annotorious-openseadragon-textlayer.umd.js"
+      "require": "./dist/annotorious-openseadragon-textlayer.js"
     },
     "./annotorious-openseadragon.css": "./dist/annotorious-openseadragon-textlayer.css"
   },
-  "main": "./dist/annotorious-openseadragon-textlayer.umd.js",
+  "main": "./dist/annotorious-openseadragon-textlayer.js",
   "module": "./dist/annotorious-openseadragon-textlayer.es.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -33,13 +33,10 @@
   },
   "homepage": "https://annotorious.github.io",
   "devDependencies": {
-    "@annotorious/formats": "file:../annotorious-formats",
     "@sveltejs/vite-plugin-svelte": "^2.0.4",
     "@tsconfig/svelte": "^3.0.0",
     "@types/node": "^20.8.0",
     "@types/openseadragon": "^3.0.4",
-    "@types/rbush": "^3.0.0",
-    "@types/uuid": "^9.0.1",
     "svelte": "^3.58.0",
     "svelte-preprocess": "^4.10.7",
     "typescript": "^4.9.5",
@@ -50,5 +47,8 @@
     "@annotorious/annotorious": "file:../../annotorious/packages/annotorious",
     "@annotorious/openseadragon": "file:../../annotorious/packages/annotorious-openseadragon",
     "openseadragon": "^3.0.0 || ^4.0.0"
+  },
+  "dependencies": {
+    "@annotorious/formats": "file:../annotorious-formats"
   }
 }
