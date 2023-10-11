@@ -1,7 +1,11 @@
-import type { OpenSeadragonAnnotator, ImageAnnotation, ImageAnnotatorState } from '@annotorious/openseadragon';
+import type { 
+  ImageAnnotation, 
+  ImageAnnotatorState, 
+  OpenSeadragonAnnotator
+} from '@annotorious/openseadragon';
 import { parseALTO } from '@annotorious/formats';
-import OpenSeadragonTextLayer from './TextLayer.svelte';
 import type { OCRFormat, TextLayerOpts } from './Types';
+import OpenSeadragonTextLayer from './TextLayer.svelte';
 import { getImageDimensions, scaleAnnotations } from './ImageDimensions';
 
 import './textLayerExtension.css';
@@ -10,16 +14,15 @@ export const mountExtension = (
   anno: OpenSeadragonAnnotator<ImageAnnotation>, 
   opts: TextLayerOpts
 ) => {
-
   const { viewer, state } = anno;
 
-  let _visible = true;
+  let _visible = opts.initialVisibility === undefined ? true : opts.initialVisibility;
 
   let _locked = false;
 
   const textLayer = new OpenSeadragonTextLayer({
     target: viewer.element.querySelector('.openseadragon-canvas'),
-    props: { state: state as ImageAnnotatorState, viewer, opts }
+    props: { state: state as ImageAnnotatorState, viewer, opts, visible: _visible }
   });
 
   const isVisible = () => _visible;

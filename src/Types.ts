@@ -2,15 +2,17 @@ import type { ImageAnnotation } from '@annotorious/openseadragon';
 
 export interface TextLayerOpts {
 
+  initialVisibility?: boolean;
+
   label(annotation: ImageAnnotation): string | undefined;
 
   mode?: 'fillBounds' | 'fixedPageSize' | 'fixedScreenSize';
 
-  position?: 'topleft' | 'bottomleft' | 'center';
-
   offsetX?: number;
 
   offsetY?: number;
+
+  position?: 'topleft' | 'bottomleft' | 'center';
 
 }
 
