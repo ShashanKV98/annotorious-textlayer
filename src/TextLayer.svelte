@@ -31,7 +31,10 @@
     const zoom = viewer.viewport.getZoom(true);
     scale = zoom * containerWidth / viewer.world.getContentFactor();
 
-    const rotation = Math.PI * viewer.viewport.getRotation() / 180;
+    // @ts-ignore note: getRotation(true <- realtime value) only since OSD 4!
+    let rotation = Math.PI * viewer.viewport.getRotation(true) / 180;
+    if (rotation < 0)
+      rotation += 2 * Math.PI;
 
     const dx = - viewportBounds.x * scale;
     const dy = - viewportBounds.y * scale;
@@ -51,11 +54,11 @@
       offsetX = 0;
       offsetY = 0;
     }
-
+    
     const tx = offsetX + dx * Math.cos(rotation) - dy * Math.sin(rotation);
     const ty = offsetY + dx * Math.sin(rotation) + dy * Math.cos(rotation);
 
-    transform = `translate(${tx}px, ${ty}px) rotate(${rotation}) scale(${scale})`;
+    transform = `translate(${tx}px, ${ty}px) rotate(${rotation}rad) scale(${scale})`;
   }
 
   onMount(() => {

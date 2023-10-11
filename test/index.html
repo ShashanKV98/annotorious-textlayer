@@ -34,6 +34,7 @@
     <div class="buttons">
       <button id="toggle-locked">Lock for Copy &amp; Paste</button>
       <button id="toggle-visibility">Toggle Layer Visiblity</button>
+      <input id="rotation" type="range" min="-180" max="180" />
     </div>
 
     <script type="module">
@@ -47,6 +48,7 @@
           id: 'openseadragon',
           prefixUrl: 'https://cdn.jsdelivr.net/npm/openseadragon@3.1/build/openseadragon/images/', 
           crossOriginPolicy: 'Anonymous',
+          showRotationControl: true,
           gestureSettingsMouse: {
             clickToZoom: false
           },
@@ -89,6 +91,14 @@
 
         document.getElementById('toggle-visibility').addEventListener('click', () => {
           textlayer.setVisible(!textlayer.isVisible());
+        });
+
+        document.getElementById('rotation').addEventListener('input', (evt) => {
+          let corrected = parseInt(evt.target.value); 
+          if (corrected < 0)
+            corrected += 360;
+
+          viewer.viewport.setRotation(corrected);
         });
       }
     </script>
