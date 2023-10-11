@@ -92,14 +92,14 @@ window.onload = function() {
 
 The text layer extension supports the following initialization options:
 
-| Option         | Type    | Default           | Description                                                                                          |
-|----------------|---------|-------------------|------------------------------------------------------------------------------------------------------|
-| defaultVisible | boolean | `true`            | Defines whether text layer is visible by default                                                     |   
-| label          | Fuction | -                 | A function which takes an `ImageAnnotation` as argument and must return a string to display as label |
-| mode           | string  | `fixedScreenSize` | Label display mode: `fixedScreenSize`, `fixedPageSize` or `fillBounds`                               |
-| offsetX        | number  | 0                 | X offset from the default position, pixels, original base image resolution                           |
-| offsetY        | number  | 0                 | Y offset from the default position, pixels, original base image resolution                           |
-| position       | string  | `bottomleft`      | label position relative to the annotation bounding box: `topleft`, `bottomleft` or `center`          |
+| Option         | Type     | Default           | Description                                                                                          |
+|----------------|----------|-------------------|------------------------------------------------------------------------------------------------------|
+| defaultVisible | boolean  | `true`            | Defines whether text layer is visible by default                                                     |   
+| label          | Function | -                 | A function which takes an `ImageAnnotation` as argument and must return a string to display as label |
+| mode           | string   | `fixedScreenSize` | Label display mode: `fixedScreenSize`, `fixedPageSize` or `fillBounds`                               |
+| offsetX        | number   | 0                 | X offset from the default position, pixels, original base image resolution                           |
+| offsetY        | number   | 0                 | Y offset from the default position, pixels, original base image resolution                           |
+| position       | string   | `bottomleft`      | label position relative to the annotation bounding box: `topleft`, `bottomleft` or `center`          |
 
 #### API
 

@@ -2,6 +2,7 @@
   "name": "@annotorious/openseadragon-textlayer",
   "version": "0.2.0",
   "description": "A text overlay layer for Annotorious OpenSeadragon",
+  "keywords": ["Annotation", "OCR", "OpenSeadragon", "Annotorious"],
   "type": "module",
   "scripts": {
     "start": "vite",
