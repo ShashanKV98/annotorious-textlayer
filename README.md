@@ -135,6 +135,9 @@ styles.
 This Annotorious extension exists thanks to the support of [Brumfield Labs](https://www.brumfieldlabs.com/),
 creators of [FromThePage](https://fromthepage.com/).
 
+<a href="https://fromthepage.com/">
+<img src="https://raw.githubusercontent.com/annotorious/annotorious-v3-extensions/main/annotorious-osd-textlayer/fromthepage_logo.jpg" style="width: 150px" /></a><br/><br/>
+
 Furthermore, thanks and acknowledgements go out to [Johannes Baiter](https://github.com/jbaiter) whose
 [Mirador Textoverlay plugin](https://github.com/dbmdz/mirador-textoverlay) served as a guide
 for this extension.
