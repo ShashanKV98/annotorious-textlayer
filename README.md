@@ -45,7 +45,7 @@ textlayer.loadOCR('alto-sample.xml');
 
 ## Using via Script Import
 
-Via script tag:
+Make sure you have OpenSeadragon and the AnnotoriousOSD script and stylesheetin imported in your page.
 
 ```html
 <html>
@@ -128,7 +128,7 @@ styles.
 
 ## License
 
-[BSD 3-Clause](https://github.com/annotorious/annotorious/blob/main/LICENSE)
+[BSD 3-Clause](https://github.com/annotorious/annotorious-v3-extensions/blob/main/annotorious-osd-textlayer/LICENSE)
 
 ## Acknowledgements
 
