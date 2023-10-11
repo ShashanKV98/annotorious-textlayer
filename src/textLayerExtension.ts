@@ -16,7 +16,7 @@ export const mountExtension = (
 ) => {
   const { viewer, state } = anno;
 
-  let _visible = opts.initialVisibility === undefined ? true : opts.initialVisibility;
+  let _visible = opts.defaultVisible === undefined ? true : opts.defaultVisible;
 
   let _locked = false;
 

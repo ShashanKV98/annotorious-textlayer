@@ -2,7 +2,7 @@ import type { ImageAnnotation } from '@annotorious/openseadragon';
 
 export interface TextLayerOpts {
 
-  initialVisibility?: boolean;
+  defaultVisible?: boolean;
 
   label(annotation: ImageAnnotation): string | undefined;
 
