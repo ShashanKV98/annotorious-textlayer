@@ -1,4 +1,4 @@
-![An example text layer overlay on a scanned document](/screenshot.jpg "An example text layer overlay on a scanned document")
+![An example text layer overlay on a scanned document](https://raw.githubusercontent.com/annotorious/annotorious-v3-extensions/main/annotorious-osd-textlayer/screenshot.jpg "An example text layer overlay on a scanned document")
 
 # Annotorious OpenSeadragon Textlayer Extension
 
