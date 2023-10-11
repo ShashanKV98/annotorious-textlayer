@@ -39,7 +39,13 @@
     if (rotation > 2 * Math.PI)
       rotation -= 2 * Math.PI;
 
-    const dx = - viewportBounds.x * scale;
+    const flipped = viewer.viewport.getFlip();
+
+    const dx = flipped ? 
+      // @ts-ignore
+      viewer.viewport._containerInnerSize.x + viewportBounds.x * scale :
+      - viewportBounds.x * scale;
+
     const dy = - viewportBounds.y * scale;
 
     let offsetX: number, offsetY: number;
@@ -59,9 +65,9 @@
     }
 
     const tx = Math.round(100 * (offsetX + dx * Math.cos(rotation) - dy * Math.sin(rotation))) / 100;
-    const ty = Math.round(100 * (offsetY + dx * Math.sin(rotation) + dy * Math.cos(rotation))) / 100;
+    const ty = Math.round(100 * (offsetY - dx * Math.sin(rotation) + dy * Math.cos(rotation))) / 100;
     
-    transform = `translate(${tx}px, ${ty}px) rotate(${rotation}rad) scale(${scale})`;
+    transform = `translate(${tx}px, ${ty}px) rotate(${rotation}rad) scaleX(${flipped ? - scale : scale}) scaleY(${scale})`;
   }
 
   onMount(() => {
