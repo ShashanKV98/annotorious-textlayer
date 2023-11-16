@@ -24,12 +24,16 @@
       return `left:${x + offsetX}px; top:${y + offsetY}px; transform: scale(${1 / scale})`;
     }
   }
+
+  $: label = opts.label(annotation);
 </script>
 
-<div 
-  class="annotation"
-  style={getStyle(x, y, scale)}>
-  <span>
-    {opts.label(annotation)}
-  </span>&nbsp;<!-- ensures spaces between words on copy and paste! -->
-</div>
+{#if label}
+  <div 
+    class="annotation"
+    style={getStyle(x, y, scale)}>
+    <span>
+      {label}
+    </span>&nbsp;<!-- ensures spaces between words on copy and paste! -->
+  </div>
+{/if}

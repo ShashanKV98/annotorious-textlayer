@@ -16,7 +16,7 @@
       "import": "./dist/annotorious-openseadragon-textlayer.es.js",
       "require": "./dist/annotorious-openseadragon-textlayer.js"
     },
-    "./annotorious-openseadragon.css": "./dist/annotorious-openseadragon-textlayer.css"
+    "./annotorious-openseadragon-textlayer.css": "./dist/annotorious-openseadragon-textlayer.css"
   },
   "main": "./dist/annotorious-openseadragon-textlayer.js",
   "module": "./dist/annotorious-openseadragon-textlayer.es.js",

@@ -30,12 +30,16 @@
       return `left:${b.minX + offsetX}px; top:${b.maxY + offsetY}px;`;
     }
   }
+
+  $: label = opts.label(annotation);
 </script>
 
-<div 
-  class="annotation"
-  style={getStyle(size)}>
-  <span bind:this={ref}>
-    {opts.label(annotation)}
-  </span>&nbsp;<!-- ensures spaces between words on copy and paste! -->
-</div>
+{#if label}
+  <div 
+    class="annotation"
+    style={getStyle(size)}>
+    <span bind:this={ref}>
+      {label}
+    </span>&nbsp;<!-- ensures spaces between words on copy and paste! -->
+  </div>
+{/if}
