@@ -33,5 +33,5 @@
 .fixed-page-size {
   color: #d80bde;
   font-size: 58px;
-  text-shadow: 0 0 6px rgb(255 255 255 / 95%);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 95%);
 }
